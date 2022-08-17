@@ -6,6 +6,7 @@ import Movies from './components/Movies'
 const api_url='http://www.omdbapi.com?apikey=985fa6c2'
 function App() {
   const [movies, setMovies] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
   const searchMovies=async (title)=>{
     const res=await axios(`${api_url}&s=${title}`)
     setMovies(res.data.Search)
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="app">
       <h1>MovieLand</h1>
-      <SearchMovie movies={movies} />
+      <SearchMovie searchTerm={searchTerm} searchMovies={searchMovies} setSearchTerm={setSearchTerm} movies={movies} />
       <div className="container">
         <Movies movies={movies}/>
       </div>

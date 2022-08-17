@@ -1,11 +1,11 @@
 import React from 'react'
 import SearchIcon from '../search.svg'
 
-const SearchMovie = () => {
+const SearchMovie = ({searchTerm,setSearchTerm,searchMovies}) => {
   return (
     <div className='search'>
-        <input type="text" placeholder='Search for Movies' value={'spaderman'} onChange={(e)=>SearchMovie(e.target.value)} />
-        <img src={SearchIcon} alt="" />
+        <input type="text" placeholder='Search for Movies' value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} />
+        <img src={SearchIcon} alt="" onClick={()=>searchMovies(searchTerm)} />
     </div>
   )
 }
