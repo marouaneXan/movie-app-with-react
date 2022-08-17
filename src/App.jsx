@@ -2,6 +2,7 @@ import './App.css';
 import {useState,useEffect} from 'react' 
 import SearchMovie from './components/SearchMovie'
 import axios from 'axios';
+import Movies from './components/Movies'
 const api_url='http://www.omdbapi.com?apikey=985fa6c2'
 function App() {
   const [movies, setMovies] = useState([])
@@ -16,14 +17,10 @@ function App() {
   return (
     <div className="app">
       <h1>MovieLand</h1>
-      <SearchMovie/>
-      {movies.map((movie)=>(
-        <>
-        <h3>{movie.Title}</h3>
-        <p>{movie.Year}</p>
-        <p>{movie.Type}</p>
-        </>
-      ))}
+      <SearchMovie movies={movies} />
+      <div className="container">
+        <Movies movies={movies}/>
+      </div>
     </div>
   );
 }

@@ -1,10 +1,13 @@
 import React from 'react'
+import Movie from './Movie'
 
-const Movies = () => {
+const Movies = ({movies}) => {
   return (
-    <div>
-        
-    </div>
+    <>
+    {movies.map((movie)=>(
+      <Movie movie={movie} />
+    ))}
+    </>
   )
 }
 
